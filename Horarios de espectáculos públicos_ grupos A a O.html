@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Horarios de espectáculos públicos: grupos A a O</title>
+<style>
+:root{--bg:#f6f7fb;--surface:#fff;--ink:#14213d;--muted:#5b6478;--line:#dfe3ee;--track:#e8ebf4;--chip:#eef1f9;--hl:#fff3c4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1424;--surface:#161e33;--ink:#e8ecf7;--muted:#a3adc4;--line:#27314d;--track:#222c47;--chip:#202a45;--hl:#4a4320}}
+:root[data-theme="dark"]{--bg:#0e1424;--surface:#161e33;--ink:#e8ecf7;--muted:#a3adc4;--line:#27314d;--track:#222c47;--chip:#202a45;--hl:#4a4320}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:28px 16px 48px}
+h1{font:700 clamp(1.7rem,4vw,2.4rem)/1.15 "Iowan Old Style","Palatino Linotype",Georgia,serif;margin:0 0 8px;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:68ch;margin:0 0 20px}
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+input{flex:1 1 260px;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+input:focus-visible{outline:3px solid #4c6fff;outline-offset:1px}
+.wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:760px}
+th{font-weight:600;text-align:left;color:var(--muted);font-size:.85rem;padding:12px 14px;border-bottom:1px solid var(--line)}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.g{font:700 1.5rem/1 "Iowan Old Style","Palatino Linotype",Georgia,serif;width:64px}
+.g small{display:block;font:500 .72rem/1.3 system-ui,sans-serif;color:var(--muted);margin-top:4px}
+.h{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.h span{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.tl{width:220px;min-width:200px}
+.bar{position:relative;height:12px;border-radius:6px;background:var(--track);margin-top:6px;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;border-radius:6px}
+.ticks{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips b{font-weight:500;background:var(--chip);border-radius:999px;padding:2px 10px;font-size:.88rem}
+.chips mark{background:var(--hl);color:inherit;border-radius:4px}
+.n{color:var(--muted);font-size:.9rem;margin-top:8px}
+.n:empty{display:none}
+tr[hidden]{display:none}
+#none{display:none;padding:18px;color:var(--muted)}
+.foot{color:var(--muted);font-size:.85rem;margin-top:14px;max-width:72ch}
+</style>
+</head>
+<body>
+<main>
+<h1>Horarios de apertura y cierre por grupos</h1>
+<p class="lead">Grupos A a O de la orden de horarios. Cada barra recorre las 24 horas del día: si el local cierra después de medianoche, la barra continúa desde la izquierda.</p>
+<div class="tools"><input id="q" type="search" placeholder="Busca un establecimiento, por ejemplo pubs o gimnasios" aria-label="Buscar establecimiento"></div>
+<div class="wrap">
+<table>
+<thead><tr><th>Grupo</th><th>Horario</th><th class="tl">Franja de 24 horas<div class="ticks"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div></th><th>Establecimientos</th></tr></thead>
+<tbody id="rows">
+<tr data-o="10:00" data-c="01:05"><td class="g">A</td><td class="h">10:00 a 01:05<span>cierre tras la última sesión</span></td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Cines</b><b>Teatros</b><b>Anfiteatros</b><b>Auditorios</b><b>Salas multifuncionales</b><b>Espectáculos circenses</b><b>Salas de artes escénicas</b><b>Salas de conciertos</b></div><div class="n">La última sesión puede empezar, como máximo, a la 01:05.</div></td></tr>
+<tr data-o="12:00" data-c="04:00"><td class="g">B<small>menos de 50.000 hab.</small></td><td class="h">12:00 a 04:00<span>erótico: 12:00 a 03:30</span></td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Cafés-teatro</b><b>Cafés-concierto</b><b>Cafés-cantante</b><b>Pubs y karaokes</b></div><div class="n">Los establecimientos de exhibiciones de contenido erótico cierran a las 03:30.</div></td></tr>
+<tr data-o="12:00" data-c="03:30"><td class="g">B<small>más de 50.000 hab.</small></td><td class="h">12:00 a 03:30<span>ampliable hasta 04:00</span></td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Cafés-teatro</b><b>Cafés-concierto</b><b>Cafés-cantante</b><b>Pubs y karaokes</b><b>Exhibiciones de contenido erótico</b></div><div class="n">El ayuntamiento puede ampliar el cierre hasta las 04:00 mediante resolución motivada (peculiaridades de la población, insonorización, afluencia turística) y debe comunicarla a la conselleria. Sin ampliación, rige el horario general. No se aplica a los locales de contenido erótico.</div></td></tr>
+<tr data-o="08:00" data-c="01:00"><td class="g">C</td><td class="h">08:00 a 01:00</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Salones recreativos</b></div><div class="n"></div></td></tr>
+<tr data-o="09:00" data-c="01:00"><td class="g">D</td><td class="h">09:00 a 01:00</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Espectáculos taurinos</b><b>Salas de conferencia</b><b>Museos y salas de exposiciones</b><b>Tentaderos</b><b>Pistas de patinaje</b><b>Parques de atracciones</b><b>Parques temáticos</b><b>Juegos de estrategia con armas simuladas</b><b>Escape rooms</b><b>Salas socioculturales</b></div><div class="n">Pueden ofrecer actuaciones musicales en directo y actividades culturales en horario diurno, que va de la apertura a las 22:00.</div></td></tr>
+<tr data-o="09:00" data-c="24:00"><td class="g">E</td><td class="h">09:00 a 24:00</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Parques acuáticos</b><b>Ludotecas</b></div><div class="n">Ludotecas, con las limitaciones del apartado 2 del art. 12 tras la reforma de la Ley Orgánica 3/2020, de 29 de diciembre.</div></td></tr>
+<tr data-o="10:00" data-c="24:00"><td class="g">F</td><td class="h">10:00 a 24:00</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Escuelas taurinas</b><b>Salones ciber y similares</b></div><div class="n"></div></td></tr>
+<tr data-o="10:00" data-c="01:00"><td class="g">G</td><td class="h">10:00 a 01:00</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Boleras</b><b>Billares</b></div><div class="n"></div></td></tr>
+<tr data-o="06:30" data-c="01:00"><td class="g">H</td><td class="h">06:30 a 01:00<span>gimnasios: 06:00</span></td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Pabellones deportivos</b><b>Campos de deporte y estadios</b><b>Piscinas deportivas</b><b>Piscinas de recreo o polivalentes</b><b>Otras instalaciones deportivas</b><b>Gimnasios</b></div><div class="n">Los gimnasios abiertos al público con insonorización acreditada pueden abrir a las 06:00. El horario puede reducirse (art. 14 de la Orden) si se incumple la normativa de contaminación acústica.</div></td></tr>
+<tr data-o="17:00" data-c="07:30"><td class="g">I</td><td class="h">17:00 a 07:30</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Salas de fiesta</b><b>Discotecas</b><b>Salas de baile</b></div><div class="n"></div></td></tr>
+<tr data-o="06:00" data-c="01:30"><td class="g">J</td><td class="h">06:00 a 01:30</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Cibercafés</b><b>Restaurantes</b><b>Cafés-bar</b><b>Cafeterías</b></div><div class="n"></div></td></tr>
+<tr data-o="08:00" data-c="03:00"><td class="g">K</td><td class="h">08:00 a 03:00</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Restaurantes, cafés-bar y cafeterías en tiendas de conveniencia</b></div><div class="n"></div></td></tr>
+<tr data-o="10:00" data-c="03:30"><td class="g">L</td><td class="h">10:00 a 03:30</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Salones de banquetes</b></div><div class="n"></div></td></tr>
+<tr data-o="09:00" data-c="22:00"><td class="g">M</td><td class="h">09:00 a 22:00</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Zoológicos</b><b>Acuarios</b><b>Safari-park</b></div><div class="n"></div></td></tr>
+<tr data-o="09:00" data-c="02:30"><td class="g">N</td><td class="h">09:00 a 02:30</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Salas polivalentes</b></div><div class="n"></div></td></tr>
+<tr data-o="12:00" data-c="02:30"><td class="g">O</td><td class="h">12:00 a 02:30</td><td class="tl"><div class="bar"></div></td><td><div class="chips"><b>Salones lounge</b></div><div class="n"></div></td></tr>
+</tbody>
+</table>
+<div id="none">No hay ningún grupo con ese establecimiento.</div>
+</div>
+<p class="foot">Para el examen, fíjate en los cierres que cruzan la medianoche (A, B, C, D, G, H, I, J, K, L, N y O) y en el único grupo que abre por la tarde (I, a las 17:00).</p>
+</main>
+<script>
+(function(){
+function hrs(t){var p=t.split(":");return (+p[0])+(+p[1])/60}
+document.querySelectorAll("#rows tr").forEach(function(tr){
+var o=hrs(tr.dataset.o),c=hrs(tr.dataset.c),bar=tr.querySelector(".bar");
+var hue=Math.round(200+Math.min(c<o?c+24:c,31.5)*4-(o>12?0:20));
+var col="hsl("+(c<o?(hue%360):200)+" 62% 50%)";
+function seg(a,b){var i=document.createElement("i");i.style.left=(a/24*100)+"%";i.style.width=((b-a)/24*100)+"%";i.style.background=col;bar.appendChild(i)}
+if(c>o){seg(o,c)}else{seg(o,24);seg(0,c)}
+});
+var q=document.getElementById("q"),rows=[].slice.call(document.querySelectorAll("#rows tr")),none=document.getElementById("none");
+q.addEventListener("input",function(){
+var s=q.value.trim().toLowerCase(),shown=0;
+rows.forEach(function(tr){
+var ok=!s||tr.textContent.toLowerCase().indexOf(s)>-1;
+tr.hidden=!ok;if(ok)shown++;
+tr.querySelectorAll(".chips b").forEach(function(b){
+var t=b.textContent;
+if(s&&t.toLowerCase().indexOf(s)>-1){var i=t.toLowerCase().indexOf(s);b.innerHTML="";b.append(t.slice(0,i));var m=document.createElement("mark");m.textContent=t.slice(i,i+s.length);b.append(m,t.slice(i+s.length))}else{b.textContent=t}
+});
+});
+none.style.display=shown?"none":"block";
+});
+})();
+</script>
+</body>
+</html>
