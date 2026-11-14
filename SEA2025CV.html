@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Oficial SEA Comunitat Valenciana 2025 | Preparación Examen</title>
+  <!-- Fuente Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Estilos personalizados complementarios */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .fade-in {
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Barra de desplazamiento discreta */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200 selection:bg-brand-600 selection:text-white">
+
+  <!-- ==================== CABECERA PRINCIPAL ==================== -->
+  <header class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+      <!-- Logotipo / Título -->
+      <button type="button" onclick="handleHeaderLogoClick()" class="flex items-center gap-3 text-left group focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-indigo-700 text-white flex items-center justify-center shadow-md shadow-brand-600/20 group-hover:scale-105 transition-transform shrink-0">
+          <!-- Icono Escudo / Acreditación SEA -->
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-sm sm:text-base tracking-tight text-slate-900 dark:text-white">Test SEA 2025</span>
+            <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300 border border-brand-200/70 dark:border-brand-700/50">
+              Comunitat Valenciana
+            </span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 hidden xs:block">Servicio Específico de Admisión · 50 preguntas únicas</p>
+        </div>
+      </button>
+
+      <!-- Controles de Cabecera -->
+      <div class="flex items-center gap-2">
+        <!-- Botón Atajos de Teclado (Info) -->
+        <button type="button" onclick="openShortcutsModal()" title="Atajos de teclado" class="p-2.5 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-800 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+        </button>
+
+        <!-- Toggle Tema Claro / Oscuro -->
+        <button type="button" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar tema" class="p-2.5 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-200 dark:hover:bg-slate-800 transition-colors">
+          <!-- Sol (modo oscuro activo) -->
+          <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+          </svg>
+          <!-- Luna (modo claro activo) -->
+          <svg id="moonIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== CONTENEDOR PRINCIPAL ==================== -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+
+    <!-- ========================================================== -->
+    <!-- VISTA 1: PANTALLA DE INICIO / PANEL DE CONTROL             -->
+    <!-- ========================================================== -->
+    <section id="homeView" class="fade-in space-y-6">
+      <!-- Banner de Bienvenida -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Convocatoria 2025 · Modelos A y B unificados sin duplicadas
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              Preparación Examen Acceso SEA
+            </h1>
+            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+              Practica con las <strong class="text-slate-800 dark:text-slate-200">50 preguntas oficiales únicas</strong> de la Generalitat Valenciana. Elige entre corrección inmediata con base normativa/sanitaria o simulacro cronometrado.
+            </p>
+          </div>
+
+          <!-- Tarjeta Resumen Estadísticas Globales -->
+          <div class="bg-slate-50 dark:bg-slate-800/70 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700/80 min-w-[250px] shrink-0">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tu progreso global</span>
+              <button type="button" onclick="confirmResetProgress()" class="text-xs font-medium text-rose-600 hover:text-rose-700 dark:text-rose-400 dark:hover:text-rose-300 underline underline-offset-2">
+                Reiniciar
+              </button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center">
+              <div class="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+                <div id="statGlobalHits" class="text-lg sm:text-xl font-extrabold text-emerald-600 dark:text-emerald-400">0</div>
+                <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Aciertos</div>
+              </div>
+              <div class="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+                <div id="statGlobalMisses" class="text-lg sm:text-xl font-extrabold text-rose-600 dark:text-rose-400">0</div>
+                <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Fallos</div>
+              </div>
+              <div class="bg-white dark:bg-slate-900 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+                <div id="statGlobalAccuracy" class="text-lg sm:text-xl font-extrabold text-brand-600 dark:text-brand-400">0%</div>
+                <div class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Acierto</div>
+              </div>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-slate-200/70 dark:border-slate-700/70 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <span>Pendientes de repaso:</span>
+              <span id="statPendingFailed" class="font-bold text-amber-600 dark:text-amber-400">0 preguntas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configuración del Test -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Columna Izquierda: Selector de Modo (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <h2 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 flex items-center justify-center text-xs font-extrabold">1</span>
+              Selecciona el modo de práctica
+            </h2>
+
+            <div class="grid grid-cols-1 gap-3" id="modeSelectorGroup">
+              <!-- Modo 1: Estudio -->
+              <label class="mode-card relative flex items-start gap-4 p-4 rounded-xl border-2 border-brand-600 bg-brand-50/40 dark:bg-brand-950/20 cursor-pointer transition-all">
+                <input type="radio" name="studyMode" value="study" checked class="sr-only" onchange="onModeChange('study')" />
+                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Modo Estudio (Corrección inmediata)</span>
+                    <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-brand-100 text-brand-700 dark:bg-brand-900/60 dark:text-brand-300">Recomendado</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                    Descubre al instante si has acertado o fallado junto con la explicación normativa o sanitaria detallada.
+                  </p>
+                </div>
+              </label>
+
+              <!-- Modo 2: Simulacro -->
+              <label class="mode-card relative flex items-start gap-4 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 cursor-pointer transition-all">
+                <input type="radio" name="studyMode" value="exam" class="sr-only" onchange="onModeChange('exam')" />
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Modo Simulacro de Examen</span>
+                    <span class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">Nota / 10</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                    Condiciones reales de examen (10, 25 o 50 preguntas), temporizador opcional de 60 minutos y corrección final detallada.
+                  </p>
+                </div>
+              </label>
+
+              <!-- Modo 3: Repasar Preguntas Falladas -->
+              <label class="mode-card relative flex items-start gap-4 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 cursor-pointer transition-all">
+                <input type="radio" name="studyMode" value="failed" class="sr-only" onchange="onModeChange('failed')" />
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-bold text-slate-900 dark:text-white text-sm sm:text-base">Repasar Preguntas Falladas</span>
+                    <span id="failedCountBadge" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300">0 falladas</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                    Practica exclusivamente con las preguntas que hayas fallado anteriormente hasta dominarlas todas.
+                  </p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Filtro por Bloque Temático -->
+          <div id="blockFilterCard" class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <h2 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 flex items-center justify-center text-xs font-extrabold">2</span>
+              Bloque temático
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="blockFilterContainer">
+              <!-- Generado dinámicamente por JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Opciones y Botón de Inicio (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+            <h2 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 flex items-center justify-center text-xs font-extrabold">3</span>
+              Opciones de configuración
+            </h2>
+
+            <!-- Número de preguntas (visible en Simulacro o cuando hay más de 10) -->
+            <div id="questionCountContainer" class="space-y-2">
+              <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300">
+                Número de preguntas del test
+              </label>
+              <div class="grid grid-cols-3 gap-2" id="questionCountButtons">
+                <button type="button" data-count="10" onclick="selectQuestionCount(10)" class="count-btn py-2.5 px-3 rounded-xl text-sm font-bold border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-brand-500 transition-all">
+                  10 preg.
+                </button>
+                <button type="button" data-count="25" onclick="selectQuestionCount(25)" class="count-btn py-2.5 px-3 rounded-xl text-sm font-bold border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-brand-500 transition-all">
+                  25 preg.
+                </button>
+                <button type="button" data-count="50" onclick="selectQuestionCount(50)" class="count-btn py-2.5 px-3 rounded-xl text-sm font-bold border-2 border-brand-600 bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-300 transition-all">
+                  Todas (50)
+                </button>
+              </div>
+              <p id="questionCountHint" class="text-xs text-slate-500 dark:text-slate-400">
+                Se incluirán todas las preguntas disponibles del filtro seleccionado.
+              </p>
+            </div>
+
+            <!-- Interruptores de Opciones -->
+            <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+              <!-- Barajar orden de preguntas -->
+              <label class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 cursor-pointer hover:bg-slate-100/80 dark:hover:bg-slate-800 transition-colors">
+                <div>
+                  <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Barajar orden de preguntas</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400">Presenta las preguntas de forma aleatoria</div>
+                </div>
+                <input type="checkbox" id="shuffleQuestionsToggle" class="w-5 h-5 rounded accent-brand-600 cursor-pointer" />
+              </label>
+
+              <!-- Barajar opciones (a, b, c) -->
+              <label class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 cursor-pointer hover:bg-slate-100/80 dark:hover:bg-slate-800 transition-colors">
+                <div>
+                  <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Barajar opciones (a, b, c)</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400">Evita memorizar la letra por posición</div>
+                </div>
+                <input type="checkbox" id="shuffleOptionsToggle" class="w-5 h-5 rounded accent-brand-600 cursor-pointer" />
+              </label>
+
+              <!-- Temporizador opcional de 60 minutos -->
+              <label id="timerToggleRow" class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 cursor-pointer hover:bg-slate-100/80 dark:hover:bg-slate-800 transition-colors">
+                <div>
+                  <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Temporizador (60 minutos)</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400">Cuenta atrás oficial del examen SEA</div>
+                </div>
+                <input type="checkbox" id="timerToggle" checked class="w-5 h-5 rounded accent-brand-600 cursor-pointer" />
+              </label>
+            </div>
+
+            <!-- Botón Comenzar Test -->
+            <button type="button" onclick="startQuiz()" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-700 hover:to-indigo-700 active:scale-[0.99] text-white font-bold text-base shadow-lg shadow-brand-600/25 flex items-center justify-center gap-2.5 transition-all">
+              <span>Comenzar Test</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Nota informativa sobre criterios de evaluación -->
+          <div class="bg-indigo-50/70 dark:bg-indigo-950/30 rounded-2xl p-4 border border-indigo-100 dark:border-indigo-900/50 flex items-start gap-3">
+            <svg class="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+            </svg>
+            <p class="text-xs text-indigo-900/80 dark:text-indigo-200/80 leading-relaxed">
+              <strong>Criterio oficial SEA:</strong> La prueba consta de 50 preguntas tipo test con 3 opciones alternativas (a, b, c). Para obtener la calificación de <strong>APTO</strong> se requiere alcanzar al menos un <strong>5,00 sobre 10</strong> (25 aciertos en examen completo).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- VISTA 2: INTERFAZ DE REALIZACIÓN DEL TEST                  -->
+    <!-- ========================================================== -->
+    <section id="quizView" class="hidden fade-in space-y-5">
+      <!-- Barra Superior de Estado y Progreso -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3.5">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <!-- Botón Salir + Etiqueta Modo -->
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="confirmExitQuiz()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 dark:text-slate-300 dark:hover:text-white dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+              <span>Salir</span>
+            </button>
+            <span id="activeModeBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-300">
+              Modo Estudio
+            </span>
+          </div>
+
+          <!-- Marcadores en tiempo real y Temporizador -->
+          <div class="flex items-center gap-2.5 sm:gap-4">
+            <!-- Contador Aciertos / Fallos (Modo Estudio) o Respondidas (Simulacro) -->
+            <div id="liveScoreContainer" class="flex items-center gap-2 text-xs sm:text-sm font-bold">
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200/70 dark:border-emerald-800/50">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                <span id="liveHits">0</span>
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-400 border border-rose-200/70 dark:border-rose-800/50">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                <span id="liveMisses">0</span>
+              </span>
+            </div>
+
+            <div id="liveAnsweredContainer" class="hidden items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300">
+              <span>Respondidas:</span>
+              <span id="liveAnsweredCount" class="text-brand-600 dark:text-brand-400">0/50</span>
+            </div>
+
+            <!-- Temporizador -->
+            <div id="timerDisplayBox" class="hidden items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs sm:text-sm font-mono font-bold text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
+              <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span id="timerText">60:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra de progreso -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
+            <span id="progressLabel">Pregunta 1 de 50</span>
+            <span id="progressPercent">2%</span>
+          </div>
+          <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+            <div id="progressBarFill" class="h-full bg-gradient-to-r from-brand-600 to-indigo-500 rounded-full transition-all duration-300" style="width: 2%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout Principal del Test: Pregunta + Navegador Rápido -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <!-- Tarjeta de Pregunta (8 cols en desktop) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <!-- Metadatos de la pregunta + Botón Bandera -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-100 dark:border-slate-800">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span id="questionNumberPill" class="px-2.5 py-1 rounded-lg bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 text-xs font-extrabold">
+                  #1
+                </span>
+                <span id="questionBlockPill" class="px-3 py-1 rounded-lg text-xs font-semibold bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/50">
+                  Constitución Española
+                </span>
+              </div>
+
+              <!-- Botón Marcar para revisar -->
+              <button type="button" id="flagQuestionBtn" onclick="toggleFlagCurrentQuestion()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-amber-50 hover:text-amber-700 hover:border-amber-300 dark:hover:bg-amber-950/40 dark:hover:text-amber-300 transition-all">
+                <svg id="flagIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5" />
+                </svg>
+                <span id="flagBtnText">Marcar para revisar</span>
+              </button>
+            </div>
+
+            <!-- Enunciado de la pregunta -->
+            <h2 id="questionText" class="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-relaxed">
+              Cargando pregunta...
+            </h2>
+
+            <!-- Opciones de Respuesta (a, b, c) -->
+            <div id="optionsContainer" class="space-y-3">
+              <!-- Opciones renderizadas dinámicamente -->
+            </div>
+
+            <!-- Caja de Justificación Normativa / Sanitaria (Modo Estudio) -->
+            <div id="justificationBox" class="hidden rounded-xl p-4 sm:p-5 border transition-all">
+              <div class="flex items-start gap-3">
+                <div id="justificationIcon" class="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                  <!-- Icono dinámico -->
+                </div>
+                <div class="space-y-1">
+                  <h3 id="justificationTitle" class="text-sm font-extrabold">
+                    Justificación
+                  </h3>
+                  <p id="justificationText" class="text-xs sm:text-sm leading-relaxed">
+                    Texto explicativo...
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Barra de Navegación Inferior -->
+          <div class="flex items-center justify-between gap-3">
+            <button type="button" id="prevQuestionBtn" onclick="navigateQuestion(-1)" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-40 disabled:pointer-events-none shadow-sm transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+              <span>Anterior</span>
+            </button>
+
+            <button type="button" id="finishQuizBtn" onclick="handleFinishQuizClick()" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-600/20 transition-all">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Finalizar Test</span>
+            </button>
+
+            <button type="button" id="nextQuestionBtn" onclick="navigateQuestion(1)" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm bg-brand-600 hover:bg-brand-700 text-white shadow-md shadow-brand-600/20 disabled:opacity-40 disabled:pointer-events-none transition-all">
+              <span>Siguiente</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Navegador Rápido de Preguntas (4 cols en desktop) -->
+        <aside class="lg:col-span-4 bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white">Navegador rápido</h3>
+            <span id="flaggedSummaryCount" class="text-xs font-semibold text-amber-600 dark:text-amber-400">0 marcadas</span>
+          </div>
+
+          <!-- Cuadrícula 1..N -->
+          <div id="quickNavigatorGrid" class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-2 max-h-[340px] overflow-y-auto p-1">
+            <!-- Botones generados dinámicamente -->
+          </div>
+
+          <!-- Leyenda de estados -->
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></span>
+              <span>Sin responder</span>
+            </div>
+            <div id="legendAnsweredItem" class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded bg-brand-600"></span>
+              <span>Respondida</span>
+            </div>
+            <div id="legendCorrectItem" class="hidden items-center gap-2">
+              <span class="w-3 h-3 rounded bg-emerald-500"></span>
+              <span>Acertada</span>
+            </div>
+            <div id="legendWrongItem" class="hidden items-center gap-2">
+              <span class="w-3 h-3 rounded bg-rose-500"></span>
+              <span>Fallada</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded bg-amber-400"></span>
+              <span>Marcada revisar</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- VISTA 3: PANTALLA DE RESULTADOS FINALES Y REVISIÓN         -->
+    <!-- ========================================================== -->
+    <section id="resultsView" class="hidden fade-in space-y-6">
+      <!-- Tarjeta Principal de Calificación -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 text-center md:text-left">
+            <div id="resultStatusBadge" class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+              APTO · EXAMEN SUPERADO
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+              Resultados del Test SEA 2025
+            </h2>
+            <p id="resultSummarySubtitle" class="text-sm text-slate-600 dark:text-slate-400">
+              Has completado el cuestionario. Revisa tus estadísticas por bloque y las explicaciones detalladas más abajo.
+            </p>
+          </div>
+
+          <!-- Nota sobre 10 -->
+          <div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/80 px-6 py-4 rounded-2xl border border-slate-200 dark:border-slate-700 shrink-0">
+            <div class="text-center">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Nota Final</div>
+              <div class="flex items-baseline justify-center gap-1 mt-0.5">
+                <span id="finalGradeValue" class="text-4xl sm:text-5xl font-black text-brand-600 dark:text-brand-400">8.40</span>
+                <span class="text-base font-bold text-slate-400">/ 10</span>
+              </div>
+            </div>
+            <div class="h-12 w-px bg-slate-200 dark:bg-slate-700"></div>
+            <div class="text-center">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Aciertos</div>
+              <div id="finalPercentValue" class="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">84%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Métricas Detalladas -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
+          <div class="p-3.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/50 text-center">
+            <div id="resHitsCount" class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">0</div>
+            <div class="text-xs font-semibold text-emerald-800/80 dark:text-emerald-300/80">Correctas</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-100 dark:border-rose-900/50 text-center">
+            <div id="resMissesCount" class="text-2xl font-extrabold text-rose-600 dark:text-rose-400">0</div>
+            <div class="text-xs font-semibold text-rose-800/80 dark:text-rose-300/80">Falladas</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 text-center">
+            <div id="resUnansweredCount" class="text-2xl font-extrabold text-slate-700 dark:text-slate-300">0</div>
+            <div class="text-xs font-semibold text-slate-500 dark:text-slate-400">Sin contestar</div>
+          </div>
+          <div class="p-3.5 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/50 text-center">
+            <div id="resTimeTaken" class="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400">00:00</div>
+            <div class="text-xs font-semibold text-indigo-800/80 dark:text-indigo-300/80">Tiempo empleado</div>
+          </div>
+        </div>
+
+        <!-- Botones de Acción Post-Test -->
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 mt-6">
+          <button type="button" id="retryFailedSessionBtn" onclick="retrySessionFailedQuestions()" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-500/20 disabled:opacity-40 disabled:pointer-events-none transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
+            <span>Repetir solo los fallos (<span id="retryFailedBtnCount">0</span>)</span>
+          </button>
+
+          <button type="button" onclick="returnToHome()" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm bg-brand-600 hover:bg-brand-700 text-white shadow-md shadow-brand-600/20 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+            <span>Volver al Panel Principal</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Desglose por Bloque Temático -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+        <h3 class="text-base font-bold text-slate-900 dark:text-white">Desglose de aciertos por bloque temático</h3>
+        <div id="blockBreakdownContainer" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Barras generadas dinámicamente -->
+        </div>
+      </div>
+
+      <!-- Revisión Completa de Preguntas -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <h3 class="text-base font-bold text-slate-900 dark:text-white">Revisión detallada de preguntas</h3>
+          <!-- Filtros de revisión -->
+          <div class="flex flex-wrap gap-1.5" id="reviewFilterPills">
+            <button type="button" onclick="filterReviewList('all')" data-filter="all" class="rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-brand-600 text-white">Todas</button>
+            <button type="button" onclick="filterReviewList('wrong')" data-filter="wrong" class="rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">Falladas</button>
+            <button type="button" onclick="filterReviewList('correct')" data-filter="correct" class="rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">Acertadas</button>
+            <button type="button" onclick="filterReviewList('unanswered')" data-filter="unanswered" class="rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">Sin responder</button>
+          </div>
+        </div>
+
+        <div id="reviewQuestionsList" class="space-y-4">
+          <!-- Tarjetas de revisión generadas dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODAL PERSONALIZADO (SIN ALERT/CONFIRM) ==================== -->
+  <div id="customModalBackdrop" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-4 fade-in">
+      <div class="flex items-start gap-3.5">
+        <div id="modalIconContainer" class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 dark:bg-brand-900/50 dark:text-brand-400 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+          </svg>
+        </div>
+        <div class="space-y-1.5 flex-1">
+          <h3 id="modalTitle" class="text-base font-bold text-slate-900 dark:text-white">Título del aviso</h3>
+          <div id="modalMessage" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Mensaje</div>
+        </div>
+      </div>
+      <div id="modalActions" class="flex items-center justify-end gap-2.5 pt-2">
+        <button type="button" id="modalCancelBtn" onclick="closeCustomModal()" class="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 transition-colors">
+          Cancelar
+        </button>
+        <button type="button" id="modalConfirmBtn" class="px-4 py-2.5 rounded-xl text-sm font-bold bg-brand-600 hover:bg-brand-700 text-white transition-colors">
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-5 mt-auto">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400">
+      <span>Examen Acceso SEA · Comunitat Valenciana (Convocatoria 2025)</span>
+      <span>50 preguntas oficiales depuradas · Atajos: A/B/C o 1/2/3 · Flechas ←/→</span>
+    </div>
+  </footer>
+
+  <!-- ==================== LÓGICA JAVASCRIPT ==================== -->
+  <script>
+    /**
+     * BANCO EXACTO DE LAS 50 PREGUNTAS ÚNICAS DEL EXAMEN SEA CV 2025
+     * (Modelos A y B unificados eliminando duplicadas, con respuestas correctas y justificaciones)
+     */
+    const QUESTIONS_DB = [
+      {
+        id: 1,
+        block: "Constitución Española",
+        question: "Según el artículo 29 de la Constitución Española, ¿quién tiene derecho de petición individual y colectiva?",
+        options: [
+          "Todos los españoles.",
+          "Los residentes en territorio español.",
+          "Las asociaciones y las fundaciones de derecho público y privado."
+        ],
+        correctIndex: 0,
+        justification: "El artículo 29.1 de la Constitución Española establece que «todos los españoles tendrán el derecho de petición individual y colectiva, por escrito, en la forma y con los efectos que determine la ley»."
+      },
+      {
+        id: 2,
+        block: "Constitución Española",
+        question: "Según la Constitución Española, se garantiza el secreto de las comunicaciones y, en especial, las postales, telegráficas y telefónicas:",
+        options: [
+          "En todo caso y sin excepciones.",
+          "Salvo resolución judicial.",
+          "Salvo decisión administrativa justificada."
+        ],
+        correctIndex: 1,
+        justification: "El artículo 18.3 de la Constitución Española garantiza el secreto de las comunicaciones «salvo resolución judicial»."
+      },
+      {
+        id: 3,
+        block: "Constitución Española",
+        question: "Según la Constitución Española, ¿qué limitaciones tienen en sus manifestaciones la libertad ideológica, religiosa y de culto de los individuos y comunidades?",
+        options: [
+          "Limitaciones derivadas del mantenimiento del orden social y económico.",
+          "Limitaciones relacionadas con el orden social, económico y político.",
+          "Limitaciones necesarias para mantener el orden público protegido por la ley."
+        ],
+        correctIndex: 2,
+        justification: "Según el artículo 16.1 de la Constitución Española, la libertad ideológica, religiosa y de culto no tiene más limitación en sus manifestaciones que «la necesaria para el mantenimiento del orden público protegido por la ley»."
+      },
+      {
+        id: 4,
+        block: "Constitución Española",
+        question: "Según la Constitución Española, ¿quién tiene derecho al acceso a la cultura?",
+        options: [
+          "Todos.",
+          "Los ciudadanos empadronados en España.",
+          "Cualquier persona que sea mayor de edad."
+        ],
+        correctIndex: 0,
+        justification: "El artículo 44.1 de la Constitución Española dispone que los poderes públicos promoverán y tutelarán el acceso a la cultura, «a la que todos tienen derecho»."
+      },
+      {
+        id: 5,
+        block: "Constitución Española",
+        question: "Según la Constitución Española, el derecho a expresar y difundir libremente pensamientos, ideas y opiniones ¿cuándo puede ser sometido a censura previa?",
+        options: [
+          "Cuando se declare el estado de excepción o el estado de sitio.",
+          "Cuando España se halle en guerra con otros países.",
+          "Nunca. Estos derechos no pueden ser objeto de restricción."
+        ],
+        correctIndex: 2,
+        justification: "El artículo 20.2 de la Constitución Española establece tajantemente que el ejercicio de estos derechos «no puede restringirse mediante ningún tipo de censura previa»."
+      },
+      {
+        id: 6,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre la reserva y el derecho de admisión:",
+        options: [
+          "Todos los espectáculos públicos, actividades recreativas y socioculturales y establecimientos públicos contarán con un servicio de admisión.",
+          "Todos los espectáculos públicos, actividades recreativas y socioculturales y establecimientos públicos contarán con un servicio específico de admisión.",
+          "Las dos respuestas anteriores son correctas."
+        ],
+        correctIndex: 0,
+        justification: "Según el artículo 53.1 del Decreto 143/2015, todos los espectáculos públicos, actividades recreativas y establecimientos públicos contarán con un servicio de admisión (el servicio específico de admisión solo es obligatorio en determinados supuestos)."
+      },
+      {
+        id: 7,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el derecho y la reserva de admisión:",
+        options: [
+          "La ley determinará los establecimientos públicos que deben de contar con servicio específico de admisión.",
+          "El ejercicio del derecho de admisión no podrá implicar ningún tipo de discriminación de acuerdo con lo dispuesto en el artículo 14 de la Constitución Española.",
+          "El derecho de admisión supone que el titular del local puede impedir el acceso y permanencia al mismo por motivos objetivos cuando puedan afectar al normal desarrollo del espectáculo o actividad o supongan la vulneración de la normativa vigente."
+        ],
+        correctIndex: 1,
+        justification: "El artículo 49.2 del Decreto 143/2015 establece literalmente que el ejercicio del derecho de admisión no podrá implicar ningún tipo de discriminación conforme al artículo 14 de la Constitución Española."
+      },
+      {
+        id: 8,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre las condiciones de admisión:",
+        options: [
+          "Deben ser visadas siempre por la conselleria competente en materia de Espectáculos.",
+          "Deben ser visadas y constar siempre en las entradas o localidades del espectáculo o actividad.",
+          "Deben ser visadas, cuando difieran de las reglamentariamente autorizadas, por el órgano competente de materia de espectáculos de la Generalitat."
+        ],
+        correctIndex: 2,
+        justification: "Conforme al artículo 51 del Decreto 143/2015, las condiciones particulares de admisión deben ser visadas por el órgano competente de la Generalitat cuando difieran de las reglamentariamente autorizadas."
+      },
+      {
+        id: 9,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el derecho de admisión, ¿cuándo podrá el titular de un local establecer instrucciones o normas particulares para el normal desarrollo del espectáculo o actividad?",
+        options: [
+          "Sólo cuando el espectáculo o actividad exceda de 1.000 personas de aforo.",
+          "Cuando así lo considere oportuno debiendo ser visadas por el órgano competente cuando afecten al derecho de igualdad o a los derechos fundamentales reconocidos en la Constitución Española.",
+          "Cuando no sea posible establecer condiciones de admisión y sea necesario fijar un orden en el espectáculo o actividad."
+        ],
+        correctIndex: 1,
+        justification: "Artículo 52 del Decreto 143/2015: el titular podrá establecer instrucciones o normas particulares cuando así lo considere oportuno, debiendo ser visadas cuando afecten al derecho de igualdad o a derechos fundamentales."
+      },
+      {
+        id: 10,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el derecho de admisión, en el cartel de las condiciones particulares de admisión ¿qué hace falta que conste por escrito?",
+        options: [
+          "La referencia a las condiciones de acceso al local y, en su caso, la expresión \"reservado el derecho de admisión\".",
+          "La existencia de hojas de reclamaciones a disposición del cliente.",
+          "El horario de apertura y cierre del establecimiento."
+        ],
+        correctIndex: 0,
+        justification: "En el cartel de condiciones particulares de admisión debe constar por escrito la referencia a las condiciones de acceso al local y, en su caso, la expresión «reservado el derecho de admisión»."
+      },
+      {
+        id: 11,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el derecho de admisión, si el titular de un local anuncia en un cartel la prohibición de usar los aseos a quien no sea cliente:",
+        options: [
+          "Ese cartel debe ser visado por el órgano competente de la Generalitat.",
+          "Ese cartel deberá ser aprobado por el órgano competente de la Generalitat.",
+          "Ese cartel no precisará ser visado por el órgano competente de la Generalitat."
+        ],
+        correctIndex: 2,
+        justification: "Según el Decreto 143/2015, no precisan ser visadas las instrucciones relativas a prohibiciones reglamentarias o de uso exclusivo de instalaciones como los aseos para clientes."
+      },
+      {
+        id: 12,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el servicio de admisión:",
+        options: [
+          "Requerirán servicio de admisión los pubs de exactamente 200 personas de aforo.",
+          "El servicio de admisión será prestado directamente por el titular o prestador del local o por las personas designadas por éste que estén bajo su dependencia y tengan encomendadas tales funciones.",
+          "Las dos respuestas anteriores son correctas."
+        ],
+        correctIndex: 2,
+        justification: "Todos los establecimientos (incluidos los pubs de 200 personas) requieren servicio de admisión (art. 53.1) y este es prestado directamente por el titular o personas bajo su dependencia (art. 53.2)."
+      },
+      {
+        id: 13,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana serán funciones a desempeñar por el personal del SEA:",
+        options: [
+          "Controlar el horario de apertura y cierre del local.",
+          "Auxiliar a las personas que precisen asistencia comunicando, si es el caso, tal extremo al teléfono de emergencias 112.",
+          "Controlar el acceso a los aseos del local."
+        ],
+        correctIndex: 1,
+        justification: "El artículo 57 del Decreto 143/2015 incluye entre las funciones del personal del SEA auxiliar a quienes precisen asistencia comunicándolo, en su caso, al teléfono 112."
+      },
+      {
+        id: 14,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el servicio específico de admisión:",
+        options: [
+          "El número de personas destinadas al SEA será como mínimo una por cada puerta de acceso sin computar las puertas de emergencia.",
+          "El número de personas destinadas al SEA será como máximo una por cada puerta de acceso sin computar las puertas de emergencia.",
+          "El número de personas destinadas al SEA será como mínimo una por cada puerta de acceso computándose también las puertas de emergencia."
+        ],
+        correctIndex: 0,
+        justification: "Artículo 56.3 del Decreto 143/2015: como mínimo una persona acreditada por cada puerta de acceso, sin computar las puertas de emergencia."
+      },
+      {
+        id: 15,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el servicio específico de admisión, ¿qué efectos tendrá la revocación del documento acreditativo del SEA?:",
+        options: [
+          "La imposibilidad de trabajar en el local que ha contratado a quien se le ha revocado la acreditación.",
+          "La pérdida inmediata de la validez de la acreditación y la prohibición de presentarse a una nueva prueba evaluadora durante el tiempo que determine la resolución del procedimiento de revocación.",
+          "La revocación de la acreditación del SEA no produce ningún efecto negativo sobre la persona afectada."
+        ],
+        correctIndex: 1,
+        justification: "Artículo 61 del Decreto 143/2015: la revocación implica la pérdida inmediata de validez de la acreditación y la inhabilitación temporal para presentarse a nuevas pruebas."
+      },
+      {
+        id: 16,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana, un pub de exactamente 200 personas de aforo que no ha contratado a personal de SEA ¿qué infracción comete?",
+        options: [
+          "Infracción grave.",
+          "Infracción muy grave.",
+          "Ninguna infracción."
+        ],
+        correctIndex: 2,
+        justification: "Conforme al artículo 56.1.b) del Decreto 143/2015, los pubs solo están obligados a disponer de SEA cuando su aforo sea superior a 200 personas. Con exactamente 200 personas no es obligatorio."
+      },
+      {
+        id: 17,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana, si el promotor de un concierto con 1.000 personas de aforo no contrata a personal de SEA:",
+        options: [
+          "Si se trata de un espectáculo con incremento de riesgo, está cometiendo una infracción tipificada como grave.",
+          "Cometerá infracción si se trata de un espectáculo extraordinario sin incremento de riesgo.",
+          "Las dos respuestas anteriores son correctas."
+        ],
+        correctIndex: 0,
+        justification: "El artículo 56.1.c) del Decreto 143/2015 exige SEA en espectáculos extraordinarios que impliquen incremento de riesgo, y su omisión constituye infracción grave (art. 51.16 Ley 14/2010)."
+      },
+      {
+        id: 18,
+        block: "Derecho de Admisión y SEA",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el servicio específico de admisión, un local con siete puertas de las cuales dos son de emergencia, ¿qué número máximo de personal de SEA deberá tener?",
+        options: [
+          "El que el titular del local quiera.",
+          "siete.",
+          "cinco."
+        ],
+        correctIndex: 0,
+        justification: "La normativa establece un mínimo obligatorio (5 en este caso: 7 puertas menos 2 de emergencia), pero no fija ningún límite máximo de personal SEA que el titular pueda contratar."
+      },
+      {
+        id: 19,
+        block: "Seguridad Privada y Reclamaciones",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el servicio de seguridad privada, ¿cuántos vigilantes deberá tener un local cuyo aforo es de 2.000 personas exactamente?",
+        options: [
+          "Tres.",
+          "Dos.",
+          "Uno."
+        ],
+        correctIndex: 1,
+        justification: "Según el artículo 64.1 del Decreto 143/2015, para un aforo de 1.001 a 2.000 personas son obligatorios 2 vigilantes de seguridad privada (3 a partir de 2.001)."
+      },
+      {
+        id: 20,
+        block: "Seguridad Privada y Reclamaciones",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el servicio de seguridad privada, ¿cuándo podrá la dirección general competente en materia de Espectáculos determinar si un local debe tener o no dicho servicio de seguridad?",
+        options: [
+          "Cuando por las características del local y por resolución motivada así lo establezca para garantizar la seguridad de las personas y bienes",
+          "Cuando el titular del local no cumpla con su obligación de contratar el servicio de seguridad.",
+          "La dirección general en materia de Espectáculos no puede nunca establecer personal de seguridad en un local por sí misma."
+        ],
+        correctIndex: 0,
+        justification: "Artículo 63.3 del Decreto 143/2015: la dirección general competente podrá exigirlo mediante resolución motivada atendiendo a las características del local para garantizar la seguridad de personas y bienes."
+      },
+      {
+        id: 21,
+        block: "Seguridad Privada y Reclamaciones",
+        question: "Según la regulación vigente en la Comunitat Valenciana sobre el servicio de seguridad privada, ¿qué infracción comete el titular de un establecimiento que no contrata dicho servicio estando obligado?",
+        options: [
+          "Infracción leve.",
+          "Infracción muy grave.",
+          "Las dos respuestas anteriores son incorrectas."
+        ],
+        correctIndex: 2,
+        justification: "Carecer del servicio de vigilancia y seguridad privada cuando sea preceptivo está tipificado en la Ley 14/2010 como infracción grave (ni leve ni muy grave)."
+      },
+      {
+        id: 22,
+        block: "Seguridad Privada y Reclamaciones",
+        question: "Según la regulación de las hojas de reclamaciones, ¿qué contenido tiene que indicar el cartel anunciador de las mismas?",
+        options: [
+          "\"Este establecimiento dispone de hojas de reclamaciones\".",
+          "\"Este establecimiento pondrá a disposición de los clientes hojas de reclamaciones\".",
+          "\"Este establecimiento tiene hojas de reclamaciones a disposición de quienes las soliciten\"."
+        ],
+        correctIndex: 2,
+        justification: "El Decreto 51/2017 establece que el cartel anunciador debe contener exactamente la leyenda: «Este establecimiento tiene hojas de reclamaciones a disposición de quienes las soliciten»."
+      },
+      {
+        id: 23,
+        block: "Seguridad Privada y Reclamaciones",
+        question: "Según la regulación de las hojas de reclamaciones, ¿de qué color son las cuatro hojas que componen el juego unitario los impresos?",
+        options: [
+          "Blanco, rojo, anaranjado y violeta.",
+          "Blanco, rosa, verde y amarillo.",
+          "Rojo, anaranjado, verde y azul."
+        ],
+        correctIndex: 1,
+        justification: "En la Comunitat Valenciana, el juego unitario de hojas de reclamaciones se compone de cuatro ejemplares autocalcables de colores blanco, rosa, verde y amarillo."
+      },
+      {
+        id: 24,
+        block: "Seguridad Privada y Reclamaciones",
+        question: "Según la normativa de las hojas de reclamaciones ¿en qué lugar se le darán dichas hojas al cliente que las solicite?",
+        options: [
+          "En el mismo lugar en que la demande o en aquél identificado como de información o atención a los clientes.",
+          "En cualquier lugar del local aunque sea en dependencias distantes al lugar de los hechos.",
+          "Sólo se entregarán las hojas en el lugar del local destinado a oficinas."
+        ],
+        correctIndex: 0,
+        justification: "Deben entregarse de forma inmediata y gratuita en el mismo lugar en que se demanden o en el punto identificado de información o atención a la clientela."
+      },
+      {
+        id: 25,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según la normativa de Horarios de la Comunitat Valenciana, una terraza de un pub en una población de más de 50.000 habitantes podrá, como norma general, cerrar como máximo a:",
+        options: [
+          "A las 03.30 horas salvo que el ayuntamiento fije otro horario menor.",
+          "A las 03.30 horas en todo caso.",
+          "A las 03.30 horas en horario de verano y a las 01.30 horas en el de invierno."
+        ],
+        correctIndex: 0,
+        justification: "La Orden de Horarios de la Comunitat Valenciana fija como límite máximo el horario general del establecimiento (03.30 h para pubs), salvo que el ayuntamiento establezca un horario menor."
+      },
+      {
+        id: 26,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según la normativa vigente, la comisión de una infracción por incumplimiento del horario de cierre de una discoteca se considera:",
+        options: [
+          "Infracción leve.",
+          "Infracción grave.",
+          "Infracción muy grave."
+        ],
+        correctIndex: 1,
+        justification: "El incumplimiento de los horarios de apertura y cierre constituye una infracción grave según la Ley 14/2010 de Espectáculos Públicos de la Comunitat Valenciana."
+      },
+      {
+        id: 27,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según la normativa de Horarios de la Comunitat Valenciana ¿cuándo deberá cerrar un local con licencia de restaurante que efectúe un espectáculo extraordinario con incremento de riesgo?",
+        options: [
+          "Deberá cerrar como máximo a la 01.30 horas.",
+          "Deberá cerrar a la hora fijada en la declaración responsable presentada por el interesado.",
+          "Deberá cerrar a la hora que haya indicado el órgano autonómico que autorizó el espectáculo."
+        ],
+        correctIndex: 2,
+        justification: "Los espectáculos extraordinarios con incremento de riesgo requieren autorización expresa, siendo su hora de cierre la fijada en la resolución del órgano autonómico que los autoriza."
+      },
+      {
+        id: 28,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según la normativa de Horarios de la Comunitat Valenciana, un restaurante que programa una actuación musical en directo como actividad ordinaria, ¿a qué hora deberá terminar como máximo?",
+        options: [
+          "A la hora que determine la resolución de autorización de la Conselleria.",
+          "A las 01.30 horas.",
+          "A las 22.00 horas."
+        ],
+        correctIndex: 1,
+        justification: "El horario máximo general de cierre de los restaurantes en la Comunitat Valenciana es a las 01.30 horas, límite hasta el cual puede desarrollarse su actividad ordinaria autorizada."
+      },
+      {
+        id: 29,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según la normativa de Horarios de la Comunitat Valenciana, el horario de un pub situado en un municipio de más de 50.000 habitantes:",
+        options: [
+          "Tendrá siempre un horario de cierre a las 4.00 horas.",
+          "Tendrá un horario de cierre a las 3.30 horas salvo resolución municipal motivada ampliatoria hasta las 4.00 horas.",
+          "Tendrá un horario de cierre a las 4.00 horas salvo resolución municipal motivada que lo minore a las 3.30 horas."
+        ],
+        correctIndex: 1,
+        justification: "La Orden de Horarios establece el cierre de los pubs a las 03.30 horas con carácter general, pudiendo ampliarse hasta las 04.00 horas mediante resolución municipal motivada en municipios de más de 50.000 habitantes."
+      },
+      {
+        id: 30,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según el Decreto de Espectáculos, las puertas de paso interior de un local:",
+        options: [
+          "Se abrirán en el sentido de la evacuación como regla general y permanecerán totalmente expeditas, libres de pasadores y sin ningún tipo de mecanismo que dificulte su apertura.",
+          "Podrán tener elementos de adorno o decorativos, espejos o cortinas.",
+          "El número de puertas interiores de las distintas dependencias del local estarán vinculadas al aforo total del local."
+        ],
+        correctIndex: 0,
+        justification: "Por seguridad y evacuación, el Decreto 143/2015 exige que las puertas interiores abran en el sentido de la evacuación y estén libres de pasadores u obstáculos."
+      },
+      {
+        id: 31,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según el Decreto de Espectáculos, en un concierto que tenga la cualificación de espectáculo extraordinario, ¿a partir de qué aforo se debe efectuar un control de acceso del público a través de sistemas técnicos de conteo automático?",
+        options: [
+          "1.000 personas.",
+          "3.500 personas.",
+          "2.000 personas."
+        ],
+        correctIndex: 2,
+        justification: "El artículo 55.2 del Decreto 143/2015 obliga a disponer de sistemas técnicos de conteo automático cuando el aforo sea igual o superior a 2.000 personas."
+      },
+      {
+        id: 32,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según el Decreto de Espectáculos, la altura mínima de un local con densidad de público igual o mayor a una persona por metro cuadrado (una discoteca por ejemplo) será de:",
+        options: [
+          "3,20 metros.",
+          "2,80 metros.",
+          "2,50 metros."
+        ],
+        correctIndex: 0,
+        justification: "Para locales de pública concurrencia con densidad de ocupación igual o superior a 1 persona/m², la altura libre mínima exigida es de 3,20 metros (2,80 m si la densidad es menor)."
+      },
+      {
+        id: 33,
+        block: "Horarios y Decreto de Espectáculos",
+        question: "Según el Decreto de Espectáculos, ¿cuándo será necesaria la presencia de una ambulancia en concierto considerado como espectáculo o actividad extraordinario?",
+        options: [
+          "Cuando el aforo del concierto sea superior a 1.000 personas.",
+          "Cuando el aforo del concierto sea superior a 5.000 personas.",
+          "Cuando el aforo del concierto sea entre 501 y 1.000 personas."
+        ],
+        correctIndex: 0,
+        justification: "El Decreto 143/2015 exige dotación de ambulancia en espectáculos extraordinarios cuando el aforo supere las 1.000 personas."
+      },
+      {
+        id: 34,
+        block: "Menores y Drogodependencias",
+        question: "Según la normativa Espectáculos dedicada a la protección de los menores en establecimientos donde se efectúen actividades no calificadas para menores o se acceda, por cualquier medio a material, a información no apta para los mismos:",
+        options: [
+          "Está permitida la entrada a menores de 18 años siempre que vayan acompañados de su padre, madre o tutor legal.",
+          "Está prohibida la entrada a menores de 16 años.",
+          "Está prohibida la entrada a los menores de 18 años."
+        ],
+        correctIndex: 2,
+        justification: "La Ley 14/2010 prohíbe expresamente la entrada y permanencia de menores de 18 años en establecimientos con actividades o contenidos no aptos para menores, incluso acompañados."
+      },
+      {
+        id: 35,
+        block: "Menores y Drogodependencias",
+        question: "Según la normativa Espectáculos dedicada a la protección de los menores:",
+        options: [
+          "Los menores podrán entrar en locales de juego siempre que vayan acompañados de sus padres.",
+          "Los menores no podrán participar en actividades deportivas de lucha o de combate no reconocidas por las administraciones o federaciones deportivas competentes en la materia.",
+          "Los menores no podrán entrar en recintos taurinos."
+        ],
+        correctIndex: 1,
+        justification: "La normativa de espectáculos prohíbe la participación de menores en actividades deportivas de lucha o combate no reconocidas oficialmente (en locales de juego tienen prohibida la entrada en todo caso)."
+      },
+      {
+        id: 36,
+        block: "Menores y Drogodependencias",
+        question: "Según la normativa Espectáculos dedicada a la protección de los menores:",
+        options: [
+          "No hay limitación de edad para la entrada y permanencia de menores de 18 años en casinos de juego.",
+          "Hay limitación de edad para la entrada y permanencia de menores de 21 años en casinos de juego.",
+          "Hay limitación de edad para la entrada y permanencia de menores de 18 años en casinos de juego."
+        ],
+        correctIndex: 2,
+        justification: "El artículo 34.1.a) de la Ley 14/2010 prohíbe la entrada y permanencia de menores de 18 años en casinos de juego, salas de bingo y salones de juego."
+      },
+      {
+        id: 37,
+        block: "Menores y Drogodependencias",
+        question: "Según la normativa Espectáculos dedicada a la protección de los menores, ¿qué otras prohibiciones o restricciones se prevén para el acceso y permanencia de menores de edad en locales o eventos abiertos a la pública concurrencia?",
+        options: [
+          "Las previstas en la normativa reguladora de la protección integral de la infancia y la adolescencia.",
+          "Las previstas en la normativa reguladora de seguridad pública.",
+          "Las previstas en las recomendaciones del Comité de los Derechos del Niño de la ONU."
+        ],
+        correctIndex: 0,
+        justification: "El Decreto 143/2015 remite expresamente a las prohibiciones y restricciones establecidas en la normativa reguladora de la protección integral de la infancia y la adolescencia."
+      },
+      {
+        id: 38,
+        block: "Menores y Drogodependencias",
+        question: "En los centros y servicios sanitarios, sociosanitarios y de servicios sociales:",
+        options: [
+          "Se permite la publicidad directa o indirecta de bebidas alcohólicas y la publicidad del tabaco.",
+          "Se prohíbe expresamente la publicidad directa o indirecta de bebidas alcohólicas y de tabaco.",
+          "Se prohíbe expresamente la publicidad directa o indirecta del tabaco, permitiéndose la publicidad de bebidas alcohólicas."
+        ],
+        correctIndex: 1,
+        justification: "La Ley 10/2014 de Salud de la Comunitat Valenciana prohíbe expresamente tanto la publicidad directa o indirecta de bebidas alcohólicas como la del tabaco en centros sanitarios, sociosanitarios y de servicios sociales."
+      },
+      {
+        id: 39,
+        block: "Menores y Drogodependencias",
+        question: "Según la normativa sobre drogodependencias y otros trastornos adictivos de la Comunitat Valenciana:",
+        options: [
+          "Se considerarán drogas las colas cuando produzcan dependencia psíquica y/o física, cambios de conducta y efectos nocivos para la salud y el bienestar social.",
+          "No se consideran drogas las sustancias estupefacientes y psicotrópicas sometidas a control, de acuerdo con las normas nacionales y convenios internacionales suscritos por el Estado Español.",
+          "Las dos respuestas anteriores son incorrectas."
+        ],
+        correctIndex: 0,
+        justification: "La normativa valenciana sobre drogodependencias incluye expresamente las colas y disolventes inhalables cuando produzcan dependencia y efectos nocivos para la salud."
+      },
+      {
+        id: 40,
+        block: "Menores y Drogodependencias",
+        question: "De acuerdo con la normativa sobre drogodependencias y otros trastornos adictivos vigente en la Comunitat Valenciana, la publicidad de bebidas alcohólicas:",
+        options: [
+          "Está prohibida en los medios públicos de transporte salvo en autobuses de la EMT.",
+          "Está prohibida en la vía pública en todo caso.",
+          "Está prohibida en los centros de servicios sociales en todo caso."
+        ],
+        correctIndex: 2,
+        justification: "Está prohibida en todo caso en los centros de servicios sociales (en transporte público está prohibida sin excepciones y en vía pública solo las de más de 20 grados)."
+      },
+      {
+        id: 41,
+        block: "Primeros Auxilios",
+        question: "En una fractura abierta, como tenemos que movilizar al accidentado.",
+        options: [
+          "Inmovilizar tal y como nos encontremos el miembro.",
+          "Reducir la fractura lo mejor posible.",
+          "Realizar un vendaje compresivo."
+        ],
+        correctIndex: 0,
+        justification: "Ante una fractura abierta nunca debe intentarse reintroducir o reducir el hueso; debe cubrirse la herida con material estéril e inmovilizar el miembro en la misma posición en que se encuentre."
+      },
+      {
+        id: 42,
+        block: "Primeros Auxilios",
+        question: "Las quemaduras por su extensión se clasifican en:",
+        options: [
+          "Primero, segundo, tercer y cuarto grado.",
+          "En tantos por ciento.",
+          "Graves, menos graves y leves."
+        ],
+        correctIndex: 1,
+        justification: "Por su profundidad se clasifican en grados (1.º, 2.º y 3.º), mientras que por su extensión se miden en tantos por ciento de superficie corporal quemada (Regla de los 9 de Wallace)."
+      },
+      {
+        id: 43,
+        block: "Primeros Auxilios",
+        question: "La actuación inicial ante un ataque epiléptico es:",
+        options: [
+          "Cubrir a la víctima con mantas.",
+          "Sujetar fuertemente a la víctima para evitar que se mueva.",
+          "Dejar que tenga las convulsiones libremente."
+        ],
+        correctIndex: 2,
+        justification: "Durante una crisis epiléptica no hay que sujetar a la persona ni introducir objetos en su boca; se deben retirar objetos peligrosos cercanos, proteger su cabeza y dejar que convulsione libremente."
+      },
+      {
+        id: 44,
+        block: "Primeros Auxilios",
+        question: "La Posición Lateral de Seguridad (PLS) consiste en:",
+        options: [
+          "Tener a la víctima en una posición estable tumbándolo ligeramente de costado y permitiendo que los fluidos puedan salir por su boca.",
+          "Colocar al accidentado boca abajo.",
+          "Estar acostado con la cabeza hacia un lado."
+        ],
+        correctIndex: 0,
+        justification: "La PLS mantiene al paciente inconsciente que respira en una postura estable de costado, evitando que la lengua obstruya la vía aérea y permitiendo el drenaje de fluidos por la boca."
+      },
+      {
+        id: 45,
+        block: "Primeros Auxilios",
+        question: "Si una persona sufre un mareo:",
+        options: [
+          "Le ayudaremos a sentarse y le daremos un vaso de agua.",
+          "Lo colocaremos en decúbito supino y le elevaremos ligeramente las piernas.",
+          "Le refrescaremos con aire en la cara."
+        ],
+        correctIndex: 1,
+        justification: "Ante una lipotimia o mareo, colocar a la persona tumbada boca arriba (decúbito supino) con las piernas elevadas unos 45° facilita el riego sanguíneo cerebral."
+      },
+      {
+        id: 46,
+        block: "Primeros Auxilios",
+        question: "En una fuerte contusión, qué medida es la más aconsejable:",
+        options: [
+          "Tomar calmantes.",
+          "Colocar un fuerte vendaje.",
+          "Aplicar frio en la zona."
+        ],
+        correctIndex: 2,
+        justification: "Aplicar frío local (sin contacto directo del hielo con la piel) provoca vasoconstricción, reduciendo la inflamación, el hematoma y el dolor."
+      },
+      {
+        id: 47,
+        block: "Primeros Auxilios",
+        question: "¿Qué tipo de quemadura es más grave?",
+        options: [
+          "La de tercer grado.",
+          "La de segundo grado.",
+          "La de primer grado."
+        ],
+        correctIndex: 0,
+        justification: "Las quemaduras de tercer grado son las más graves porque destruyen todo el espesor de la piel (epidermis, dermis e hipodermis) y las terminaciones nerviosas."
+      },
+      {
+        id: 48,
+        block: "Primeros Auxilios",
+        question: "¿Qué ritmo hay que seguir para realizar un RCP, a un adulto, si se está solo y sin ayuda?",
+        options: [
+          "25 compresiones por 3 ventilaciones, a 75 compresiones por minuto.",
+          "20 compresiones por 2 ventilaciones, a 80 compresiones por minuto.",
+          "30 compresiones por 2 ventilaciones, a 100 compresiones por minuto."
+        ],
+        correctIndex: 2,
+        justification: "El protocolo estándar de Reanimación Cardiopulmonar (RCP) en adultos establece ciclos de 30 compresiones torácicas seguidas de 2 ventilaciones de rescate a un ritmo de 100-120 compresiones por minuto."
+      },
+      {
+        id: 49,
+        block: "Primeros Auxilios",
+        question: "En las quemaduras, ante la presencia de ampollas:",
+        options: [
+          "Las vaciaremos, aplicaremos un antiséptico y las vendaremos.",
+          "Las cubriremos procurando que no se rompan y se trasladará al accidentado a un centro sanitario.",
+          "Dejaremos que se sequen por sí mismas."
+        ],
+        correctIndex: 1,
+        justification: "Las ampollas (flictenas) protegen la piel lesionada frente a infecciones; nunca deben pincharse ni vaciarse, sino cubrirse suavemente para evitar su rotura y acudir a un centro sanitario."
+      },
+      {
+        id: 50,
+        block: "Primeros Auxilios",
+        question: "La posición semisentada es la más indicada en una persona que:",
+        options: [
+          "Tiene problemas respiratorios.",
+          "Sufre fuertes dolores en el abdomen.",
+          "Está mareada."
+        ],
+        correctIndex: 0,
+        justification: "La posición semisentada (Fowler) facilita la mecánica ventilatoria y la expansión de los pulmones en personas con dificultad respiratoria o traumatismos torácicos."
+      }
+    ];
+
+    /**
+     * Definición de bloques temáticos en orden oficial
+     */
+    const THEMATIC_BLOCKS = [
+      { id: "ALL", label: "Todos los bloques", count: 50 },
+      { id: "Constitución Española", label: "Constitución Española", count: 5 },
+      { id: "Derecho de Admisión y SEA", label: "Derecho de Admisión y SEA", count: 13 },
+      { id: "Seguridad Privada y Reclamaciones", label: "Seguridad Privada y Reclamaciones", count: 6 },
+      { id: "Horarios y Decreto de Espectáculos", label: "Horarios y Decreto de Espectáculos", count: 9 },
+      { id: "Menores y Drogodependencias", label: "Menores y Drogodependencias", count: 7 },
+      { id: "Primeros Auxilios", label: "Primeros Auxilios", count: 10 }
+    ];
+
+    const STORAGE_KEY = "sea_cv_2025_progress_v1";
+    const THEME_KEY = "sea_cv_2025_theme_v1";
+
+    /**
+     * Estado persistente del usuario
+     */
+    let userProgress = {
+      totalHits: 0,
+      totalMisses: 0,
+      failedIds: []
+    };
+
+    /**
+     * Estado de configuración inicial
+     */
+    let configState = {
+      mode: "study", // 'study' | 'exam' | 'failed'
+      selectedBlock: "ALL",
+      questionCount: 50
+    };
+
+    /**
+     * Estado de la sesión activa del test
+     */
+    let session = {
+      active: false,
+      mode: "study",
+      questions: [], // Array de instancias con opciones barajadas si aplica
+      currentIndex: 0,
+      answers: {}, // { [index]: selectedOptionIndex }
+      flags: {},   // { [index]: true }
+      useTimer: false,
+      remainingSeconds: 3600,
+      elapsedSeconds: 0,
+      timerId: null,
+      reviewFilter: "all"
+    };
+
+    /**
+     * Inicialización al cargar la página
+     */
+    window.addEventListener("DOMContentLoaded", () => {
+      initTheme();
+      loadProgress();
+      renderBlockFilters();
+      updateHomeStatsUI();
+      selectQuestionCount(50);
+      setupKeyboardShortcuts();
+    });
+
+    /* ==================== GESTIÓN DE TEMA CLARO / OSCURO ==================== */
+    function initTheme() {
+      try {
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      } catch (e) {
+        console.warn("No se pudo acceder a localStorage para el tema:", e);
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle("dark");
+      try {
+        localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
+      } catch (e) {
+        console.warn("No se pudo guardar preferencia de tema:", e);
+      }
+    }
+
+    /* ==================== PERSISTENCIA EN LOCALSTORAGE ==================== */
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          userProgress = {
+            totalHits: Number(parsed.totalHits) || 0,
+            totalMisses: Number(parsed.totalMisses) || 0,
+            failedIds: Array.isArray(parsed.failedIds) ? parsed.failedIds : []
+          };
+        }
+      } catch (e) {
+        console.error("Error leyendo progreso de localStorage:", e);
+      }
+    }
+
+    function saveProgress() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userProgress));
+      } catch (e) {
+        console.error("Error guardando progreso en localStorage:", e);
+      }
+    }
+
+    function recordQuestionResult(questionId, isCorrect) {
+      if (isCorrect) {
+        userProgress.totalHits += 1;
+        // Si estaba en falladas, la eliminamos al haberla acertado
+        userProgress.failedIds = userProgress.failedIds.filter(id => id !== questionId);
+      } else {
+        userProgress.totalMisses += 1;
+        if (!userProgress.failedIds.includes(questionId)) {
+          userProgress.failedIds.push(questionId);
+        }
+      }
+      saveProgress();
+      updateHomeStatsUI();
+    }
+
+    function confirmResetProgress() {
+      openCustomModal({
+        title: "Reiniciar progreso guardado",
+        message: "Se borrarán tus estadísticas globales y el listado de preguntas falladas guardadas. ¿Deseas continuar?",
+        confirmText: "Sí, reiniciar",
+        cancelText: "Cancelar",
+        danger: true,
+        onConfirm: () => {
+          userProgress = { totalHits: 0, totalMisses: 0, failedIds: [] };
+          saveProgress();
+          updateHomeStatsUI();
+          closeCustomModal();
+        }
+      });
+    }
+
+    /* ==================== INTERFAZ PANEL DE INICIO ==================== */
+    function updateHomeStatsUI() {
+      const total = userProgress.totalHits + userProgress.totalMisses;
+      const accuracy = total > 0 ? Math.round((userProgress.totalHits / total) * 100) : 0;
+      const failedCount = userProgress.failedIds.length;
+
+      document.getElementById("statGlobalHits").textContent = userProgress.totalHits;
+      document.getElementById("statGlobalMisses").textContent = userProgress.totalMisses;
+      document.getElementById("statGlobalAccuracy").textContent = `${accuracy}%`;
+      document.getElementById("statPendingFailed").textContent = `${failedCount} ${failedCount === 1 ? "pregunta" : "preguntas"}`;
+      document.getElementById("failedCountBadge").textContent = `${failedCount} ${failedCount === 1 ? "fallada" : "falladas"}`;
+    }
+
+    function renderBlockFilters() {
+      const container = document.getElementById("blockFilterContainer");
+      container.innerHTML = THEMATIC_BLOCKS.map(block => {
+        const isSelected = configState.selectedBlock === block.id;
+        const baseClasses = "block-filter-btn flex items-center justify-between gap-2 p-3 rounded-xl border-2 text-left transition-all cursor-pointer";
+        const activeClasses = isSelected
+          ? "border-brand-600 bg-brand-50/70 dark:bg-brand-950/30 text-brand-800 dark:text-brand-200 font-bold"
+          : "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300 font-medium";
+
+        return `
+          <button type="button" onclick="selectBlockFilter('${block.id}')" class="${baseClasses} ${activeClasses} ${block.id === 'ALL' ? 'sm:col-span-2' : ''}">
+            <span class="text-xs sm:text-sm truncate">${block.label}</span>
+            <span class="px-2 py-0.5 rounded-md text-xs font-bold shrink-0 ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'}">
+              ${block.count}
+            </span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function selectBlockFilter(blockId) {
+      configState.selectedBlock = blockId;
+      renderBlockFilters();
+
+      const blockObj = THEMATIC_BLOCKS.find(b => b.id === blockId);
+      const maxAvailable = blockObj ? blockObj.count : 50;
+
+      // Ajustar selección de número de preguntas según disponibilidad del bloque
+      if (configState.questionCount > maxAvailable) {
+        selectQuestionCount(maxAvailable);
+      } else {
+        updateQuestionCountHint(maxAvailable);
+      }
+    }
+
+    function onModeChange(mode) {
+      configState.mode = mode;
+
+      // Actualizar estilos de las tarjetas de modo
+      document.querySelectorAll(".mode-card").forEach(card => {
+        const radio = card.querySelector("input[type='radio']");
+        if (radio.value === mode) {
+          card.classList.add("border-brand-600", "bg-brand-50/40", "dark:bg-brand-950/20");
+          card.classList.remove("border-slate-200", "dark:border-slate-800");
+        } else {
+          card.classList.remove("border-brand-600", "bg-brand-50/40", "dark:bg-brand-950/20");
+          card.classList.add("border-slate-200", "dark:border-slate-800");
+        }
+      });
+
+      const blockCard = document.getElementById("blockFilterCard");
+      const countContainer = document.getElementById("questionCountContainer");
+      const timerToggle = document.getElementById("timerToggle");
+
+      if (mode === "failed") {
+        blockCard.classList.add("opacity-50", "pointer-events-none");
+        countContainer.classList.add("opacity-50", "pointer-events-none");
+        timerToggle.checked = false;
+      } else {
+        blockCard.classList.remove("opacity-50", "pointer-events-none");
+        countContainer.classList.remove("opacity-50", "pointer-events-none");
+        timerToggle.checked = (mode === "exam");
+      }
+    }
+
+    function selectQuestionCount(count) {
+      configState.questionCount = count;
+      document.querySelectorAll(".count-btn").forEach(btn => {
+        const btnCount = Number(btn.dataset.count);
+        if (btnCount === count || (btnCount === 50 && count > 25)) {
+          btn.classList.add("border-brand-600", "bg-brand-50", "dark:bg-brand-950/40", "text-brand-700", "dark:text-brand-300");
+          btn.classList.remove("border-slate-200", "dark:border-slate-700", "text-slate-700", "dark:text-slate-300");
+        } else {
+          btn.classList.remove("border-brand-600", "bg-brand-50", "dark:bg-brand-950/40", "text-brand-700", "dark:text-brand-300");
+          btn.classList.add("border-slate-200", "dark:border-slate-700", "text-slate-700", "dark:text-slate-300");
+        }
+      });
+
+      const blockObj = THEMATIC_BLOCKS.find(b => b.id === configState.selectedBlock);
+      updateQuestionCountHint(blockObj ? blockObj.count : 50);
+    }
+
+    function updateQuestionCountHint(maxAvailable) {
+      const effectiveCount = Math.min(configState.questionCount, maxAvailable);
+      const hintEl = document.getElementById("questionCountHint");
+      if (effectiveCount < configState.questionCount) {
+        hintEl.textContent = `El bloque seleccionado dispone de ${maxAvailable} preguntas en total.`;
+      } else {
+        hintEl.textContent = `Se cargarán ${effectiveCount} ${effectiveCount === 1 ? "pregunta" : "preguntas"} para esta sesión.`;
+      }
+    }
+
+    /* ==================== INICIO Y PREPARACIÓN DEL TEST ==================== */
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function startQuiz(customQuestionList = null) {
+      const mode = customQuestionList ? "study" : configState.mode;
+      const shuffleQuestions = document.getElementById("shuffleQuestionsToggle").checked;
+      const shuffleOptions = document.getElementById("shuffleOptionsToggle").checked;
+      const useTimer = customQuestionList ? false : document.getElementById("timerToggle").checked;
+
+      let pool = [];
+
+      if (customQuestionList) {
+        pool = [...customQuestionList];
+      } else if (mode === "failed") {
+        if (userProgress.failedIds.length === 0) {
+          openCustomModal({
+            title: "No tienes preguntas falladas pendientes",
+            message: "¡Enhorabuena! Ahora mismo no tienes preguntas falladas guardadas en tu historial. Realiza un test en Modo Estudio o Simulacro para practicar.",
+            confirmText: "Entendido",
+            hideCancel: true,
+            onConfirm: () => closeCustomModal()
+          });
+          return;
+        }
+        pool = QUESTIONS_DB.filter(q => userProgress.failedIds.includes(q.id));
+      } else {
+        pool = configState.selectedBlock === "ALL"
+          ? [...QUESTIONS_DB]
+          : QUESTIONS_DB.filter(q => q.block === configState.selectedBlock);
+      }
+
+      if (shuffleQuestions) {
+        pool = shuffleArray(pool);
+      }
+
+      if (!customQuestionList && mode !== "failed") {
+        pool = pool.slice(0, configState.questionCount);
+      }
+
+      // Preparar instancias de pregunta (barajando opciones si procede)
+      const preparedQuestions = pool.map(q => {
+        const optionObjects = q.options.map((text, idx) => ({
+          text,
+          isCorrect: idx === q.correctIndex
+        }));
+
+        const finalOptions = shuffleOptions ? shuffleArray(optionObjects) : optionObjects;
+        const newCorrectIndex = finalOptions.findIndex(o => o.isCorrect);
+
+        return {
+          ...q,
+          preparedOptions: finalOptions.map(o => o.text),
+          preparedCorrectIndex: newCorrectIndex
+        };
+      });
+
+      // Inicializar estado de sesión
+      stopTimer();
+      session = {
+        active: true,
+        mode,
+        questions: preparedQuestions,
+        currentIndex: 0,
+        answers: {},
+        flags: {},
+        useTimer,
+        remainingSeconds: 3600, // 60 minutos
+        elapsedSeconds: 0,
+        timerId: null,
+        reviewFilter: "all"
+      };
+
+      // Configurar UI del modo activo
+      setupQuizViewUI();
+      switchView("quizView");
+      renderCurrentQuestion();
+      renderQuickNavigator();
+      startTimer();
+    }
+
+    function setupQuizViewUI() {
+      const modeBadge = document.getElementById("activeModeBadge");
+      const liveScoreContainer = document.getElementById("liveScoreContainer");
+      const liveAnsweredContainer = document.getElementById("liveAnsweredContainer");
+      const legendAnswered = document.getElementById("legendAnsweredItem");
+      const legendCorrect = document.getElementById("legendCorrectItem");
+      const legendWrong = document.getElementById("legendWrongItem");
+
+      if (session.mode === "exam") {
+        modeBadge.textContent = "Simulacro de Examen";
+        liveScoreContainer.classList.add("hidden");
+        liveScoreContainer.classList.remove("flex");
+        liveAnsweredContainer.classList.remove("hidden");
+        liveAnsweredContainer.classList.add("flex");
+
+        legendAnswered.classList.remove("hidden");
+        legendAnswered.classList.add("flex");
+        legendCorrect.classList.add("hidden");
+        legendWrong.classList.add("hidden");
+      } else {
+        modeBadge.textContent = session.mode === "failed" ? "Repaso de Fallos" : "Modo Estudio";
+        liveScoreContainer.classList.remove("hidden");
+        liveScoreContainer.classList.add("flex");
+        liveAnsweredContainer.classList.add("hidden");
+        liveAnsweredContainer.classList.remove("flex");
+
+        legendAnswered.classList.add("hidden");
+        legendAnswered.classList.remove("flex");
+        legendCorrect.classList.remove("hidden");
+        legendCorrect.classList.add("flex");
+        legendWrong.classList.remove("hidden");
+        legendWrong.classList.add("flex");
+      }
+
+      const timerBox = document.getElementById("timerDisplayBox");
+      if (session.useTimer) {
+        timerBox.classList.remove("hidden");
+        timerBox.classList.add("flex");
+        updateTimerDisplay();
+      } else {
+        timerBox.classList.add("hidden");
+        timerBox.classList.remove("flex");
+      }
+
+      updateLiveCounters();
+    }
+
+    /* ==================== TEMPORIZADOR ==================== */
+    function startTimer() {
+      stopTimer();
+      session.timerId = setInterval(() => {
+        session.elapsedSeconds += 1;
+        if (session.useTimer) {
+          session.remainingSeconds -= 1;
+          updateTimerDisplay();
+          if (session.remainingSeconds <= 0) {
+            stopTimer();
+            finalizeQuiz(true);
+          }
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (session.timerId) {
+        clearInterval(session.timerId);
+        session.timerId = null;
+      }
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(Math.max(0, session.remainingSeconds) / 60);
+      const secs = Math.max(0, session.remainingSeconds) % 60;
+      const formatted = `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+      const timerText = document.getElementById("timerText");
+      const timerBox = document.getElementById("timerDisplayBox");
+
+      timerText.textContent = formatted;
+      if (session.remainingSeconds <= 300) {
+        timerBox.classList.add("bg-rose-50", "text-rose-700", "border-rose-300", "dark:bg-rose-950/60", "dark:text-rose-300", "dark:border-rose-800");
+      } else {
+        timerBox.classList.remove("bg-rose-50", "text-rose-700", "border-rose-300", "dark:bg-rose-950/60", "dark:text-rose-300", "dark:border-rose-800");
+      }
+    }
+
+    function formatDuration(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+    }
+
+    /* ==================== RENDERIZADO Y INTERACCIÓN DE PREGUNTA ==================== */
+    function renderCurrentQuestion() {
+      const idx = session.currentIndex;
+      const total = session.questions.length;
+      const q = session.questions[idx];
+      const userAnswer = session.answers[idx];
+      const isAnswered = userAnswer !== undefined;
+      const isFlagged = Boolean(session.flags[idx]);
+
+      // Actualizar barra de progreso
+      const pct = Math.round(((idx + 1) / total) * 100);
+      document.getElementById("progressLabel").textContent = `Pregunta ${idx + 1} de ${total}`;
+      document.getElementById("progressPercent").textContent = `${pct}%`;
+      document.getElementById("progressBarFill").style.width = `${pct}%`;
+
+      // Metadatos
+      document.getElementById("questionNumberPill").textContent = `#${q.id}`;
+      document.getElementById("questionBlockPill").textContent = q.block;
+      document.getElementById("questionText").textContent = q.question;
+
+      // Estado botón bandera
+      const flagBtn = document.getElementById("flagQuestionBtn");
+      const flagIcon = document.getElementById("flagIcon");
+      const flagBtnText = document.getElementById("flagBtnText");
+      if (isFlagged) {
+        flagBtn.classList.add("bg-amber-100", "text-amber-800", "border-amber-400", "dark:bg-amber-950/70", "dark:text-amber-300", "dark:border-amber-700");
+        flagIcon.setAttribute("fill", "currentColor");
+        flagBtnText.textContent = "Marcada";
+      } else {
+        flagBtn.classList.remove("bg-amber-100", "text-amber-800", "border-amber-400", "dark:bg-amber-950/70", "dark:text-amber-300", "dark:border-amber-700");
+        flagIcon.setAttribute("fill", "none");
+        flagBtnText.textContent = "Marcar para revisar";
+      }
+
+      // Renderizar opciones (a, b, c)
+      const letters = ["a", "b", "c"];
+      const optionsContainer = document.getElementById("optionsContainer");
+
+      optionsContainer.innerHTML = q.preparedOptions.map((optText, optIdx) => {
+        const letter = letters[optIdx];
+        let btnClasses = "w-full text-left p-4 rounded-xl border-2 transition-all flex items-start gap-3.5 group ";
+        let badgeClasses = "w-7 h-7 rounded-lg flex items-center justify-center text-xs font-extrabold uppercase shrink-0 mt-0.5 transition-colors ";
+        let statusIcon = "";
+
+        if (session.mode === "exam") {
+          // Modo Simulacro: solo resalta la opción elegida
+          const isSelected = userAnswer === optIdx;
+          if (isSelected) {
+            btnClasses += "border-brand-600 bg-brand-50/70 dark:bg-brand-950/40 text-slate-900 dark:text-white shadow-sm";
+            badgeClasses += "bg-brand-600 text-white";
+          } else {
+            btnClasses += "border-slate-200 dark:border-slate-800 hover:border-brand-400 dark:hover:border-brand-600 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-800 dark:text-slate-200";
+            badgeClasses += "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 group-hover:bg-brand-100 group-hover:text-brand-700";
+          }
+        } else {
+          // Modo Estudio / Repaso Fallos: corrección inmediata
+          if (!isAnswered) {
+            btnClasses += "border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-slate-50 dark:hover:bg-slate-800/60 text-slate-800 dark:text-slate-200 cursor-pointer";
+            badgeClasses += "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 group-hover:bg-brand-600 group-hover:text-white";
+          } else {
+            const isCorrectOpt = optIdx === q.preparedCorrectIndex;
+            const isSelectedWrong = optIdx === userAnswer && !isCorrectOpt;
+
+            if (isCorrectOpt) {
+              btnClasses += "border-emerald-500 bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-100 cursor-default";
+              badgeClasses += "bg-emerald-600 text-white";
+              statusIcon = `<svg class="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5 ml-auto" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
+            } else if (isSelectedWrong) {
+              btnClasses += "border-rose-500 bg-rose-50/80 dark:bg-rose-950/40 text-rose-950 dark:text-rose-100 cursor-default";
+              badgeClasses += "bg-rose-600 text-white";
+              statusIcon = `<svg class="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5 ml-auto" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>`;
+            } else {
+              btnClasses += "border-slate-200/60 dark:border-slate-800/60 opacity-55 text-slate-600 dark:text-slate-400 cursor-default";
+              badgeClasses += "bg-slate-100 dark:bg-slate-800 text-slate-500";
+            }
+          }
+        }
+
+        const disabledAttr = (session.mode !== "exam" && isAnswered) ? "disabled" : "";
+
+        return `
+          <button type="button" ${disabledAttr} onclick="selectAnswer(${optIdx})" class="${btnClasses}">
+            <span class="${badgeClasses}">${letter}</span>
+            <span class="text-sm sm:text-base font-medium leading-snug flex-1">${optText}</span>
+            ${statusIcon}
+          </button>
+        `;
+      }).join("");
+
+      // Mostrar u ocultar justificación en Modo Estudio
+      const justBox = document.getElementById("justificationBox");
+      if (session.mode !== "exam" && isAnswered) {
+        const isCorrect = userAnswer === q.preparedCorrectIndex;
+        justBox.classList.remove("hidden", "bg-emerald-50/80", "border-emerald-200", "dark:bg-emerald-950/30", "dark:border-emerald-800/60", "bg-rose-50/80", "border-rose-200", "dark:bg-rose-950/30", "dark:border-rose-800/60");
+
+        const justIcon = document.getElementById("justificationIcon");
+        const justTitle = document.getElementById("justificationTitle");
+        const justText = document.getElementById("justificationText");
+
+        if (isCorrect) {
+          justBox.classList.add("bg-emerald-50/80", "border-emerald-200", "dark:bg-emerald-950/30", "dark:border-emerald-800/60");
+          justIcon.className = "w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5";
+          justIcon.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
+          justTitle.className = "text-sm font-extrabold text-emerald-800 dark:text-emerald-300";
+          justTitle.textContent = "¡Respuesta correcta! Fundamento normativo / sanitario:";
+          justText.className = "text-xs sm:text-sm leading-relaxed text-emerald-900/90 dark:text-emerald-200/90";
+        } else {
+          justBox.classList.add("bg-rose-50/80", "border-rose-200", "dark:bg-rose-950/30", "dark:border-rose-800/60");
+          justIcon.className = "w-7 h-7 rounded-lg bg-rose-600 text-white flex items-center justify-center shrink-0 mt-0.5";
+          justIcon.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>`;
+          justTitle.className = "text-sm font-extrabold text-rose-800 dark:text-rose-300";
+          justTitle.textContent = `Respuesta incorrecta (La correcta es la ${letters[q.preparedCorrectIndex].toUpperCase()}):`;
+          justText.className = "text-xs sm:text-sm leading-relaxed text-rose-900/90 dark:text-rose-200/90";
+        }
+        justText.textContent = q.justification;
+      } else {
+        justBox.classList.add("hidden");
+      }
+
+      // Actualizar estado botones Anterior / Siguiente
+      document.getElementById("prevQuestionBtn").disabled = idx === 0;
+      document.getElementById("nextQuestionBtn").disabled = idx === total - 1;
+
+      renderQuickNavigator();
+    }
+
+    function selectAnswer(optionIndex) {
+      if (!session.active) return;
+      const idx = session.currentIndex;
+      const q = session.questions[idx];
+
+      if (session.mode !== "exam") {
+        // En Modo Estudio no se permite cambiar una vez respondida
+        if (session.answers[idx] !== undefined) return;
+        session.answers[idx] = optionIndex;
+
+        const isCorrect = optionIndex === q.preparedCorrectIndex;
+        recordQuestionResult(q.id, isCorrect);
+      } else {
+        // En Modo Simulacro se permite seleccionar o cambiar respuesta
+        session.answers[idx] = optionIndex;
+      }
+
+      updateLiveCounters();
+      renderCurrentQuestion();
+    }
+
+    function toggleFlagCurrentQuestion() {
+      if (!session.active) return;
+      const idx = session.currentIndex;
+      session.flags[idx] = !session.flags[idx];
+      renderCurrentQuestion();
+    }
+
+    function navigateQuestion(delta) {
+      const nextIdx = session.currentIndex + delta;
+      if (nextIdx >= 0 && nextIdx < session.questions.length) {
+        session.currentIndex = nextIdx;
+        renderCurrentQuestion();
+      }
+    }
+
+    function jumpToQuestion(targetIndex) {
+      if (targetIndex >= 0 && targetIndex < session.questions.length) {
+        session.currentIndex = targetIndex;
+        renderCurrentQuestion();
+      }
+    }
+
+    function updateLiveCounters() {
+      let hits = 0;
+      let misses = 0;
+      let answered = 0;
+
+      session.questions.forEach((q, i) => {
+        if (session.answers[i] !== undefined) {
+          answered += 1;
+          if (session.answers[i] === q.preparedCorrectIndex) {
+            hits += 1;
+          } else {
+            misses += 1;
+          }
+        }
+      });
+
+      document.getElementById("liveHits").textContent = hits;
+      document.getElementById("liveMisses").textContent = misses;
+      document.getElementById("liveAnsweredCount").textContent = `${answered}/${session.questions.length}`;
+    }
+
+    function renderQuickNavigator() {
+      const grid = document.getElementById("quickNavigatorGrid");
+      let flaggedCount = 0;
+
+      grid.innerHTML = session.questions.map((q, idx) => {
+        const isCurrent = idx === session.currentIndex;
+        const userAns = session.answers[idx];
+        const isAnswered = userAns !== undefined;
+        const isFlagged = Boolean(session.flags[idx]);
+        if (isFlagged) flaggedCount += 1;
+
+        let classes = "relative h-9 rounded-lg text-xs font-bold flex items-center justify-center transition-all ";
+
+        if (isCurrent) {
+          classes += "ring-2 ring-offset-2 ring-brand-600 dark:ring-offset-slate-900 ";
+        }
+
+        if (!isAnswered) {
+          classes += "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700";
+        } else if (session.mode === "exam") {
+          classes += "bg-brand-600 text-white hover:bg-brand-700";
+        } else {
+          const isCorrect = userAns === q.preparedCorrectIndex;
+          classes += isCorrect
+            ? "bg-emerald-500 text-white hover:bg-emerald-600"
+            : "bg-rose-500 text-white hover:bg-rose-600";
+        }
+
+        const flagDot = isFlagged
+          ? `<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-amber-400 ring-2 ring-white dark:ring-slate-900"></span>`
+          : "";
+
+        return `
+          <button type="button" onclick="jumpToQuestion(${idx})" class="${classes}">
+            ${idx + 1}
+            ${flagDot}
+          </button>
+        `;
+      }).join("");
+
+      document.getElementById("flaggedSummaryCount").textContent = `${flaggedCount} ${flaggedCount === 1 ? "marcada" : "marcadas"}`;
+    }
+
+    /* ==================== FINALIZACIÓN Y RESULTADOS ==================== */
+    function handleFinishQuizClick() {
+      const total = session.questions.length;
+      const answeredCount = Object.keys(session.answers).length;
+      const unanswered = total - answeredCount;
+
+      if (unanswered > 0) {
+        openCustomModal({
+          title: "Finalizar y corregir test",
+          message: `Todavía tienes <strong>${unanswered} ${unanswered === 1 ? "pregunta sin responder" : "preguntas sin responder"}</strong>. ¿Deseas finalizar el test y ver tu nota ahora?`,
+          confirmText: "Sí, finalizar test",
+          cancelText: "Seguir respondiendo",
+          onConfirm: () => {
+            closeCustomModal();
+            finalizeQuiz(false);
+          }
+        });
+      } else {
+        finalizeQuiz(false);
+      }
+    }
+
+    function finalizeQuiz(timeExpired = false) {
+      stopTimer();
+      session.active = false;
+
+      let hits = 0;
+      let misses = 0;
+      let unanswered = 0;
+      const blockStats = {};
+
+      session.questions.forEach((q, idx) => {
+        if (!blockStats[q.block]) {
+          blockStats[q.block] = { total: 0, hits: 0 };
+        }
+        blockStats[q.block].total += 1;
+
+        const userAns = session.answers[idx];
+        if (userAns === undefined) {
+          unanswered += 1;
+        } else {
+          const isCorrect = userAns === q.preparedCorrectIndex;
+          if (isCorrect) {
+            hits += 1;
+            blockStats[q.block].hits += 1;
+          } else {
+            misses += 1;
+          }
+
+          // En modo simulacro registramos ahora el resultado persistente
+          if (session.mode === "exam") {
+            recordQuestionResult(q.id, isCorrect);
+          }
+        }
+      });
+
+      const total = session.questions.length;
+      const gradeOver10 = total > 0 ? ((hits / total) * 10).toFixed(2) : "0.00";
+      const percent = total > 0 ? Math.round((hits / total) * 100) : 0;
+      const isPassed = Number(gradeOver10) >= 5.0;
+
+      // Actualizar cabecera de resultados
+      const statusBadge = document.getElementById("resultStatusBadge");
+      if (isPassed) {
+        statusBadge.className = "inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300";
+        statusBadge.textContent = "APTO · PRUEBA SUPERADA";
+      } else {
+        statusBadge.className = "inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300";
+        statusBadge.textContent = "NO APTO · SIGUE PRACTICANDO";
+      }
+
+      document.getElementById("resultSummarySubtitle").textContent = timeExpired
+        ? "El tiempo de 60 minutos ha finalizado. Aquí tienes la corrección completa de tu simulacro."
+        : "Has completado el cuestionario. Revisa tus aciertos por bloque y las justificaciones oficiales.";
+
+      document.getElementById("finalGradeValue").textContent = gradeOver10;
+      document.getElementById("finalPercentValue").textContent = `${percent}%`;
+      document.getElementById("resHitsCount").textContent = hits;
+      document.getElementById("resMissesCount").textContent = misses;
+      document.getElementById("resUnansweredCount").textContent = unanswered;
+      document.getElementById("resTimeTaken").textContent = formatDuration(session.elapsedSeconds);
+
+      // Botón repetir solo fallos de esta sesión
+      const retryBtn = document.getElementById("retryFailedSessionBtn");
+      document.getElementById("retryFailedBtnCount").textContent = misses;
+      retryBtn.disabled = misses === 0;
+
+      // Renderizar desglose por bloque temático
+      renderBlockBreakdown(blockStats);
+
+      // Renderizar lista de revisión completa
+      session.reviewFilter = "all";
+      updateReviewFilterButtons("all");
+      renderReviewList();
+
+      switchView("resultsView");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderBlockBreakdown(blockStats) {
+      const container = document.getElementById("blockBreakdownContainer");
+      container.innerHTML = Object.entries(blockStats).map(([blockName, data]) => {
+        const pct = data.total > 0 ? Math.round((data.hits / data.total) * 100) : 0;
+        const barColor = pct >= 70 ? "bg-emerald-500" : pct >= 50 ? "bg-brand-600" : "bg-rose-500";
+
+        return `
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 truncate">${blockName}</span>
+              <span class="text-xs font-extrabold text-slate-700 dark:text-slate-300 shrink-0">${data.hits}/${data.total} (${pct}%)</span>
+            </div>
+            <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div class="h-full ${barColor} rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function filterReviewList(filterType) {
+      session.reviewFilter = filterType;
+      updateReviewFilterButtons(filterType);
+      renderReviewList();
+    }
+
+    function updateReviewFilterButtons(activeFilter) {
+      document.querySelectorAll(".rev-filter-btn").forEach(btn => {
+        if (btn.dataset.filter === activeFilter) {
+          btn.className = "rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-brand-600 text-white transition-colors";
+        } else {
+          btn.className = "rev-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition-colors";
+        }
+      });
+    }
+
+    function renderReviewList() {
+      const container = document.getElementById("reviewQuestionsList");
+      const letters = ["a", "b", "c"];
+
+      const filteredItems = session.questions
+        .map((q, idx) => ({ q, idx, userAns: session.answers[idx] }))
+        .filter(item => {
+          const isUnanswered = item.userAns === undefined;
+          const isCorrect = !isUnanswered && item.userAns === item.q.preparedCorrectIndex;
+          if (session.reviewFilter === "correct") return isCorrect;
+          if (session.reviewFilter === "wrong") return !isUnanswered && !isCorrect;
+          if (session.reviewFilter === "unanswered") return isUnanswered;
+          return true;
+        });
+
+      if (filteredItems.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-sm text-slate-500 dark:text-slate-400">
+            No hay preguntas que coincidan con este filtro.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filteredItems.map(({ q, idx, userAns }) => {
+        const isUnanswered = userAns === undefined;
+        const isCorrect = !isUnanswered && userAns === q.preparedCorrectIndex;
+
+        let statusBadge = "";
+        let borderClass = "";
+        if (isUnanswered) {
+          statusBadge = `<span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300">Sin contestar</span>`;
+          borderClass = "border-slate-200 dark:border-slate-800";
+        } else if (isCorrect) {
+          statusBadge = `<span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Correcta</span>`;
+          borderClass = "border-emerald-200 dark:border-emerald-900/60";
+        } else {
+          statusBadge = `<span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300">Fallada</span>`;
+          borderClass = "border-rose-200 dark:border-rose-900/60";
+        }
+
+        const optionsHtml = q.preparedOptions.map((optText, optIdx) => {
+          const isRight = optIdx === q.preparedCorrectIndex;
+          const isUserChoice = optIdx === userAns;
+          let rowClass = "p-2.5 rounded-lg text-xs sm:text-sm flex items-start gap-2 ";
+
+          if (isRight) {
+            rowClass += "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-semibold border border-emerald-200 dark:border-emerald-800/60";
+          } else if (isUserChoice && !isRight) {
+            rowClass += "bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200 font-semibold border border-rose-200 dark:border-rose-800/60";
+          } else {
+            rowClass += "text-slate-600 dark:text-slate-400";
+          }
+
+          return `
+            <div class="${rowClass}">
+              <span class="font-extrabold uppercase">${letters[optIdx]})</span>
+              <span class="flex-1">${optText}</span>
+              ${isRight ? '<span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 shrink-0">[Correcta]</span>' : ''}
+              ${isUserChoice && !isRight ? '<span class="text-[11px] font-bold text-rose-600 dark:text-rose-400 shrink-0">[Tu respuesta]</span>' : ''}
+            </div>
+          `;
+        }).join("");
+
+        return `
+          <div class="p-4 sm:p-5 rounded-xl border ${borderClass} bg-slate-50/50 dark:bg-slate-800/30 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-extrabold text-slate-500 dark:text-slate-400">Preg. ${idx + 1} (Oficial #${q.id})</span>
+                <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400">· ${q.block}</span>
+              </div>
+              ${statusBadge}
+            </div>
+            <p class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">${q.question}</p>
+            <div class="space-y-1.5">${optionsHtml}</div>
+            <div class="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700/80 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <strong class="text-slate-800 dark:text-slate-100">Justificación:</strong> ${q.justification}
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function retrySessionFailedQuestions() {
+      const missedOriginalQuestions = [];
+      session.questions.forEach((q, idx) => {
+        const userAns = session.answers[idx];
+        if (userAns !== undefined && userAns !== q.preparedCorrectIndex) {
+          const original = QUESTIONS_DB.find(item => item.id === q.id);
+          if (original) missedOriginalQuestions.push(original);
+        }
+      });
+
+      if (missedOriginalQuestions.length > 0) {
+        startQuiz(missedOriginalQuestions);
+      }
+    }
+
+    /* ==================== NAVEGACIÓN ENTRE VISTAS Y MODALES ==================== */
+    function switchView(viewId) {
+      ["homeView", "quizView", "resultsView"].forEach(id => {
+        const el = document.getElementById(id);
+        if (id === viewId) {
+          el.classList.remove("hidden");
+        } else {
+          el.classList.add("hidden");
+        }
+      });
+    }
+
+    function handleHeaderLogoClick() {
+      if (session.active) {
+        confirmExitQuiz();
+      } else {
+        returnToHome();
+      }
+    }
+
+    function confirmExitQuiz() {
+      openCustomModal({
+        title: "Abandonar el test actual",
+        message: "Si sales ahora, perderás el progreso de la sesión en curso. ¿Deseas volver al panel principal?",
+        confirmText: "Salir al inicio",
+        cancelText: "Continuar test",
+        danger: true,
+        onConfirm: () => {
+          stopTimer();
+          session.active = false;
+          closeCustomModal();
+          returnToHome();
+        }
+      });
+    }
+
+    function returnToHome() {
+      stopTimer();
+      session.active = false;
+      updateHomeStatsUI();
+      switchView("homeView");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function openShortcutsModal() {
+      openCustomModal({
+        title: "Atajos de teclado disponibles",
+        message: `
+          <div class="space-y-2 pt-1 text-xs sm:text-sm">
+            <div class="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800">
+              <span>Seleccionar opción A / B / C</span>
+              <kbd class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono font-bold">A B C</kbd> o <kbd class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono font-bold">1 2 3</kbd>
+            </div>
+            <div class="flex justify-between py-1 border-b border-slate-100 dark:border-slate-800">
+              <span>Pregunta anterior / siguiente</span>
+              <kbd class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono font-bold">←</kbd> / <kbd class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono font-bold">→</kbd>
+            </div>
+            <div class="flex justify-between py-1">
+              <span>Marcar pregunta para revisar</span>
+              <kbd class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono font-bold">M</kbd>
+            </div>
+          </div>
+        `,
+        confirmText: "Entendido",
+        hideCancel: true,
+        onConfirm: () => closeCustomModal()
+      });
+    }
+
+    function openCustomModal({ title, message, confirmText = "Aceptar", cancelText = "Cancelar", danger = false, hideCancel = false, onConfirm }) {
+      const backdrop = document.getElementById("customModalBackdrop");
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalMessage").innerHTML = message;
+
+      const cancelBtn = document.getElementById("modalCancelBtn");
+      cancelBtn.textContent = cancelText;
+      if (hideCancel) {
+        cancelBtn.classList.add("hidden");
+      } else {
+        cancelBtn.classList.remove("hidden");
+      }
+
+      const confirmBtn = document.getElementById("modalConfirmBtn");
+      confirmBtn.textContent = confirmText;
+      confirmBtn.className = danger
+        ? "px-4 py-2.5 rounded-xl text-sm font-bold bg-rose-600 hover:bg-rose-700 text-white transition-colors"
+        : "px-4 py-2.5 rounded-xl text-sm font-bold bg-brand-600 hover:bg-brand-700 text-white transition-colors";
+
+      confirmBtn.onclick = () => {
+        if (typeof onConfirm === "function") onConfirm();
+      };
+
+      backdrop.classList.remove("hidden");
+      backdrop.classList.add("flex");
+    }
+
+    function closeCustomModal() {
+      const backdrop = document.getElementById("customModalBackdrop");
+      backdrop.classList.add("hidden");
+      backdrop.classList.remove("flex");
+    }
+
+    /* ==================== ATAJOS DE TECLADO ==================== */
+    function setupKeyboardShortcuts() {
+      document.addEventListener("keydown", (e) => {
+        // Ignorar si hay un modal abierto
+        const modalOpen = !document.getElementById("customModalBackdrop").classList.contains("hidden");
+        if (modalOpen) {
+          if (e.key === "Escape") closeCustomModal();
+          return;
+        }
+
+        if (!session.active) return;
+
+        const key = e.key.toLowerCase();
+        if (key === "a" || key === "1") {
+          selectAnswer(0);
+        } else if (key === "b" || key === "2") {
+          selectAnswer(1);
+        } else if (key === "c" || key === "3") {
+          selectAnswer(2);
+        } else if (e.key === "ArrowRight") {
+          navigateQuestion(1);
+        } else if (e.key === "ArrowLeft") {
+          navigateQuestion(-1);
+        } else if (key === "m" || key === "f") {
+          toggleFlagCurrentQuestion();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
